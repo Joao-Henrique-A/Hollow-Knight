@@ -2,7 +2,7 @@
 
 ## Visão geral
 
-O ShareMusic! será um site inspirado no IMDb, mas voltado para o mundo da música. Nele, o usuário poderá pesquisar músicas, artistas e álbuns utilizando a API do Spotify.
+O HollowQuiz! será um site inspirado no IMDb, mas voltado para o mundo da música. Nele, o usuário poderá pesquisar músicas, artistas e álbuns utilizando a API do Spotify.
 A ideia é que, ao pesquisar uma música ou um álbum, o site mostre informações como nome, artista, capa e data de lançamento. Ao clicar em um resultado, o usuário poderá ver mais detalhes e acessar o conteúdo no Spotify.
 O objetivo é criar um site simples, funcional e com uma aparência organizada, utilizando os conhecimentos aprendidos durante as aulas.
 
