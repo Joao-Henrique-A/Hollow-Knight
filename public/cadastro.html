@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AquaTech | Cadastro</title>
+  <title>HollowQuiz | Cadastro</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -17,26 +17,23 @@
 
 <body onload="listar()">
   <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+   <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="./assets/imgs/HollowQuiz-logo.png" alt="Hollow Knight">
+            </a>
+
+            <nav>
+                <ul class="navbar">
+                   <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html">História</a></li>
+                    <li><a href="index.html">Universo</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li class="agora"><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
   <!--header fim-->
 
   <div class="login">
@@ -46,7 +43,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="card card-cadastro">
+      <div class="card">
         <h2>Bem-vindo!</h2>
         <div class="formulario">
           <!--
@@ -54,16 +51,8 @@
                          Assim que inserir vá para o script abaixo.
                      -->
           <div class="campo">
-           
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder=" aqui seu código">
-          <div class="campo">
             <span>Nome:</span>
             <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-            <div class="campo">
-            <span>CPF:</span>
-            <input id="cpf_input" type="text" placeholder="Seu CPF" />
           </div>
           <div class="campo">
             <span>E-mail:</span>
@@ -113,18 +102,14 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var cpfVar = cpf_input.value;
-    var idEmpresaVincular
+   
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == "" || 
-      cpfVar == ""
+      confirmacaoSenhaVar == "" 
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -136,27 +121,14 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
-    if(nome.length <= 1){
+    if(nomeVar.length <= 1){
 
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "(Mensagem de erro nome precisa de mais caracteres)"
       finalizarAguardar();
       return false;
     }
-    else if (!email.includes("@") || !email.includes(".")){
+    else if (!emailVar.includes("@") || !emailVar.includes(".")){
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "(Mensagem de erro email precisa de . e @!)"
       finalizarAguardar();
@@ -171,13 +143,7 @@
       mensagem_erro.innerHTML = "(Mensagem de erro nome precisa de mais caracteres)"
       finalizarAguardar();
     }
-      else if (cpfVar != 11){
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Mensagem de erro nome precisa de mais caracteres)"
-      finalizarAguardar();
-    }
     
-
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -190,8 +156,6 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular,
-        cpfServer: cpfVar
       }),
     })
       .then(function (resposta) {
@@ -220,27 +184,6 @@
 
     return false;
   }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
