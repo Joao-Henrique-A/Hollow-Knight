@@ -2,47 +2,44 @@
 
 ## Visão geral
 
-O HollowQuiz! será um site inspirado no IMDb, mas voltado para o mundo da música. Nele, o usuário poderá pesquisar músicas, artistas e álbuns utilizando a API do Spotify.
-A ideia é que, ao pesquisar uma música ou um álbum, o site mostre informações como nome, artista, capa e data de lançamento. Ao clicar em um resultado, o usuário poderá ver mais detalhes e acessar o conteúdo no Spotify.
-O objetivo é criar um site simples, funcional e com uma aparência organizada, utilizando os conhecimentos aprendidos durante as aulas.
+O projeto será um site dedicado ao universo de Hollow Knight e Hollow Knight: Silksong. O objetivo é apresentar informações sobre os jogos e oferecer um sistema de quiz para testar os conhecimentos dos usuários sobre seus personagens, histórias, itens, cenários e acontecimentos.
+
+O site terá uma interface organizada, com uma barra de navegação (Navbar) que permitirá acessar as seguintes páginas:
+
+- **Dashboard:** apresentará o desempenho do usuário nos quizzes, incluindo erros cometidos, pontos fortes e informações sobre seu progresso.
+- **Quiz:** permitirá que o usuário responda perguntas sobre Hollow Knight e Silksong.
+- **Login:** permitirá que usuários cadastrados acessem suas contas.
+- **Cadastro:** permitirá criar uma nova conta para utilizar o sistema.
+- **Index:** página inicial com informações sobre a história de Hollow Knight
+- **História Silksong** parecida com a página inicial mas é sobre silksong.
+
+O sistema deverá armazenar os resultados das tentativas dos usuários para que suas dificuldades e seus pontos fortes possam ser identificados e apresentados na Dashboard.
 
 ## Tecnologias
 
-- HTML para estruturar o site.
-- CSS para personalizar a aparência.
-- JavaScript para as funcionalidades e pesquisas.
-- API do Spotify para buscar informações sobre músicas, artistas e álbuns.
+- HTML para estruturar as páginas do site.
+- CSS para personalizar a aparência e o layout.
+- JavaScript para implementar as funcionalidades e a interação com o usuário.
+- Banco de dados para armazenar usuários, respostas, erros e resultados dos quizzes.
 - Visual Studio Code para desenvolver o projeto.
 
 ## Arquitetura
 
-O projeto será organizado da seguinte forma:
+O projeto será organizado de forma que cada responsabilidade fique separada.
 
-- index.html: página principal do site.
-- css/style.css: arquivo responsável pelo estilo e aparência.
-- js/script.js: arquivo responsável pelas funcionalidades e pela pesquisa na API do Spotify.
-- assets/: pasta para guardar imagens, ícones e outros arquivos utilizados no site.
+- **index.html:** página inicial com informações sobre a história de Hollow Knight e Silksong.
+- **dashboard.html:** página que apresentará o desempenho e o histórico do usuário.
+- **quiz.html:** página responsável pela exibição das perguntas e pelo funcionamento do quiz.
+- **login.html:** página de acesso dos usuários.
+- **cadastro.html:** página de criação de novas contas.
+- **css/:** pasta responsável pelos arquivos de estilização das páginas.
+- **js/:** pasta responsável pelos arquivos JavaScript e pelas funcionalidades do sistema.
+- **assets/:** pasta destinada às imagens, ícones e outros recursos visuais.
 
-O usuário fará uma pesquisa pelo campo de busca. O JavaScript utilizará o termo digitado para consultar a API do Spotify e mostrará os resultados na página.As alterações no visual devem ser feitas no CSS, as alterações na estrutura no HTML e as funcionalidades no JavaScript.
+As páginas deverão manter uma identidade visual consistente, utilizando a mesma Navbar e seguindo os padrões de organização do projeto.
 
-## Padrões de desenvolvimento
+## Sistema de Quiz
 
-- Utilizar somente let para declarar variaveis.
-- Utilizar nomes em camelCase, como musicaLegal, nomeArtista e buscarMusica.
-- Manter os nomes de arquivos e pastas simples e organizados.
-- Escrever códigos simples, priorizando os conteúdos já ensinados nas aulas.
-- Manter HTML, CSS e JavaScript separados.
-- Evitar repetir códigos desnecessariamente.
-- Não adicionar bibliotecas ou ferramentas sem necessidade.
+O quiz será dividido em quatro níveis de dificuldade, cada um contendo cinco perguntas, totalizando vinte perguntas.
 
-## Cuidados e restrições
-
-- Não utilizar conteúdos, funções ou técnicas que ainda não foram ensinados pelos professores sem antes avisar.
-- Sempre que precisar utilizar uma função, método ou estrutura mais complexa ou ainda não estudada, explicar antes o que ela faz, como funciona e por que será necessária.
-- Priorizar soluções que utilizem os conhecimentos básicos de HTML, CSS e JavaScript.
-- Não complicar o código quando existir uma maneira mais simples de fazer a mesma coisa.
-- Caso seja necessário utilizar algo diferente do que foi definido neste documento, explicar o motivo antes de implementar.
-
-## Regra geral
-
-Antes de fazer alterações, verificar este documento e seguir os padrões definidos. O código deve ser desenvolvido gradualmente, de forma que eu consiga entender o funcionamento de cada parte e explicar como o projeto foi feito.
+A progressão será organizada da

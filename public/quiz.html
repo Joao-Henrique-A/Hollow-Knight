@@ -79,6 +79,13 @@
                 <span id="spanQuestaoExibida"></span>
             </div>
 
+            <div id="midiaQuestao" class="midia-questao" hidden>
+                <img id="imagemQuestao" alt="" hidden>
+                <audio id="audioQuestao" controls preload="none" aria-label="Áudio da questão" hidden>
+                    Seu navegador não suporta áudio.
+                </audio>
+            </div>
+
             <div id="infoAlternativas" class="info-alternativas">
                 <span>Escolha uma opção dentre as abaixo:</span>
             </div>
@@ -145,6 +152,9 @@
 
             {
                 pergunta: "Qual é o nome do reino subterrâneo explorado em Hollow Knight?",
+                imagem: "./assets/imgs/hollowknight-background.jpg",
+                imagemDescricao: "Imagem ilustrativa de Hollow Knight",
+                audio: "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3",
                 alternativaA: "Pharloom",
                 alternativaB: "Hallownest",
                 alternativaC: "Dirtmouth",
@@ -378,6 +388,28 @@
             document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1;
 
             document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+
+            const midiaQuestao = document.getElementById("midiaQuestao");
+            const imagemQuestao = document.getElementById("imagemQuestao");
+            const audioQuestao = document.getElementById("audioQuestao");
+
+            midiaQuestao.hidden = !questaoAtual.imagem && !questaoAtual.audio;
+            imagemQuestao.hidden = !questaoAtual.imagem;
+            imagemQuestao.alt = questaoAtual.imagemDescricao || "";
+            if (questaoAtual.imagem) {
+                imagemQuestao.src = questaoAtual.imagem;
+            } else {
+                imagemQuestao.removeAttribute("src");
+            }
+
+            audioQuestao.pause();
+            audioQuestao.hidden = !questaoAtual.audio;
+            if (questaoAtual.audio) {
+                audioQuestao.src = questaoAtual.audio;
+            } else {
+                audioQuestao.removeAttribute("src");
+            }
+            audioQuestao.load();
 
             document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
             document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
