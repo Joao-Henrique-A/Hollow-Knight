@@ -1,631 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HollowQuiz | Quiz</title>
     <link rel="stylesheet" href="./styles/estilo.css">
+    <link rel="icon" href="./assets/imgs/hollowmenu.png">
+    <script src="./js/quiz.js" defer></script>
 </head>
+<body class="pagina-quiz">
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="./assets/imgs/HollowQuiz-logo.png" alt="HollowQuiz"></a>
+            <nav aria-label="Navegação principal">
+                <ul class="navbar">
+                    <li><a href="index.html">Início</a></li>
+                    <li class="agora"><a href="quiz.html" aria-current="page">Quiz</a></li>
+                    <li><a href="dashboard/dashboard.html">Dashboard</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<body onload="onloadEsconder()">
-
-    <div id="pontuacaoEJogo" class="container-quiz">
-
-        <!-- TELA INICIAL -->
+    <main class="container-quiz">
         <div id="telaInicial" class="tela-inicial">
             <div class="conteudo-inicial">
-
                 <span class="subtitulo">UM QUIZ SOBRE UM REINO ESQUECIDO</span>
-
-                <h1>HOLLOW<span>QUIZ</span></h1>
-
-                <p class="descricao-quiz">
-                    Explore seus conhecimentos sobre Hollow Knight e Silksong.
-                    Responda às perguntas e descubra quanto você sabe
-                    sobre esses mundos e seus personagens.
-                </p>
-
+                <h1><img class="logo-quiz" src="./assets/imgs/HollowQuiz-logo.png" alt="HollowQuiz"></h1>
+                <img class="ornamento" src="./assets/ornamentos/silksong.png" alt="">
+                <p class="descricao-quiz">Explore seus conhecimentos sobre Hollow Knight e Silksong.
+                    Responda às perguntas e descubra quanto você sabe sobre esses mundos e seus personagens.</p>
                 <div class="informacoes-quiz">
-                    <span>15 questões</span>
-                    <span>4 alternativas</span>
-                    <span>3 níveis de dificuldade</span>
+                    <span>20 questões</span><span>4 alternativas</span><span>4 níveis de dificuldade</span>
                 </div>
-
-                <button id="btnIniciarQuiz" class="botao-quiz"
-                    onclick="iniciarQuiz()">
-                    INICIAR QUIZ
-                </button>
-
+                <button id="btnIniciarQuiz" class="botao-quiz" type="button">INICIAR QUIZ</button>
+                <p id="mensagemInicial" class="quiz-mensagem" role="status"></p>
             </div>
         </div>
 
-        <!-- PONTUAÇÃO -->
-        <div id="pontuacao" class="painel-pontuacao">
-
-            <div id="pontuacaoDuranteJogo" class="pontuacao-atual">
-                <span>Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span>Quantidade de erros: <span id="spanErradas"></span></span>
+        <div id="pontuacao" class="painel-pontuacao" hidden>
+            <div class="pontuacao-atual" aria-live="polite">
+                <div class="placar placar-acertos"><span>Acertos</span><strong id="spanCertas">0</strong></div>
+                <div class="placar placar-erros"><span>Erros</span><strong id="spanErradas">0</strong></div>
             </div>
-
-            <div id="pontuacaoFinalJogo" class="pontuacao-final">
-
-                <span id="pontuacaoFinal">
-                    Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-
-                <span id="msgFinal">***</span>
-
-            </div>
-
         </div>
 
-        <!-- ÁREA DAS PERGUNTAS -->
-        <div id="jogo" class="area-quiz">
-
-            <div id="infoQuestao" class="info-questao">
-                <span>
-                    Questão atual:
-                    <span id="spanNumeroDaQuestaoAtual"></span>
-                    de
-                    <span id="qtdQuestoes"></span>
-                    questões.
-                </span>
+        <div id="jogo" class="area-quiz" hidden>
+            <div class="info-questao">
+                <span class="questao-contador">Questão <span id="spanNumeroDaQuestaoAtual"></span> / <span id="qtdQuestoes"></span></span>
+                <div class="questao-metadados" aria-label="Informações da questão">
+                    <span class="questao-etiqueta"><span>Jogo</span><strong id="jogoQuestao"></strong></span>
+                    <span id="etiquetaDificuldade" class="questao-etiqueta dificuldade"><span>Dificuldade</span><strong id="dificuldadeQuestao"></strong></span>
+                    <span class="questao-etiqueta"><span>Assunto</span><strong id="temaQuestao"></strong></span>
+                    <span class="questao-etiqueta"><span>Tipo</span><strong id="tipoQuestao"></strong></span>
+                </div>
+                <img id="ornamentoQuestao" class="ornamento-questao" src="./assets/ornamentos/hollow-knight.png" alt="">
             </div>
-
-            <div id="perguntaDaQuestaoAtual" class="pergunta">
-                <span id="spanQuestaoExibida"></span>
-            </div>
-
+            <div class="pergunta" id="spanQuestaoExibida"></div>
             <div id="midiaQuestao" class="midia-questao" hidden>
                 <img id="imagemQuestao" alt="" hidden>
-                <audio id="audioQuestao" controls preload="none" aria-label="Áudio da questão" hidden>
-                    Seu navegador não suporta áudio.
-                </audio>
+                <div id="painelAudio" class="painel-audio" hidden>
+                    <span class="audio-icone" aria-hidden="true">&#9835;</span>
+                    <div class="audio-conteudo">
+                        <strong>Ouça o trecho</strong><span>Reproduza o áudio antes de responder.</span>
+                        <audio id="audioQuestao" controls preload="none" aria-label="Áudio da questão">Seu navegador não suporta áudio.</audio>
+                    </div>
+                </div>
             </div>
-
-            <div id="infoAlternativas" class="info-alternativas">
-                <span>Escolha uma opção dentre as abaixo:</span>
-            </div>
-
+            <div class="info-alternativas">Escolha uma opção dentre as abaixo:</div>
             <div id="opcoes" class="opcoes">
-
-                <span class="opcao-item">
-                    <input type="radio" id="primeiraOpcao" name="option"
-                        class="radio" value="alternativaA">
-                    <label for="primeiraOpcao" class="option"
-                        id="labelOpcaoUm"></label>
-                </span>
-
-                <span class="opcao-item">
-                    <input type="radio" id="segundaOpcao" name="option"
-                        class="radio" value="alternativaB">
-                    <label for="segundaOpcao" class="option"
-                        id="labelOpcaoDois"></label>
-                </span>
-
-                <span class="opcao-item">
-                    <input type="radio" id="terceiraOpcao" name="option"
-                        class="radio" value="alternativaC">
-                    <label for="terceiraOpcao" class="option"
-                        id="labelOpcaoTres"></label>
-                </span>
-
-                <span class="opcao-item">
-                    <input type="radio" id="quartaOpcao" name="option"
-                        class="radio" value="alternativaD">
-                    <label for="quartaOpcao" class="option"
-                        id="labelOpcaoQuatro"></label>
-                </span>
-
+                <span class="opcao-item"><input type="radio" id="primeiraOpcao" name="option" class="radio" value="A"><label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label></span>
+                <span class="opcao-item"><input type="radio" id="segundaOpcao" name="option" class="radio" value="B"><label for="segundaOpcao" class="option" id="labelOpcaoDois"></label></span>
+                <span class="opcao-item"><input type="radio" id="terceiraOpcao" name="option" class="radio" value="C"><label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label></span>
+                <span class="opcao-item"><input type="radio" id="quartaOpcao" name="option" class="radio" value="D"><label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label></span>
             </div>
-
-            <div id="botoes" class="botoes-quiz">
-
-                <button onclick="submeter()" id="btnSubmeter"
-                    class="botao-quiz">
-                    Submeter resposta
-                </button>
-
-                <button onclick="avancar()" id="btnProx"
-                    class="botao-quiz" disabled>
-                    Próxima questão
-                </button>
-
-                <button onclick="tentarNovamente()" id="btnTentarNovamente"
-                    class="botao-quiz" disabled>
-                    Tentar novamente
-                </button>
-
+            <p id="feedbackResposta" class="feedback-resposta" role="status" hidden></p>
+            <div class="botoes-quiz">
+                <button id="btnSubmeter" class="botao-quiz" type="button">Submeter resposta</button>
+                <button id="btnProx" class="botao-quiz" type="button" disabled>Próxima questão</button>
             </div>
-
         </div>
-
-    </div>
-
-    <script>
-
-        const listaDeQuestoes = [
-
-
-            {
-                pergunta: "Qual é o nome do reino subterrâneo explorado em Hollow Knight?",
-                imagem: "./assets/imgs/hollowknight-background.jpg",
-                imagemDescricao: "Imagem ilustrativa de Hollow Knight",
-                audio: "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3",
-                alternativaA: "Pharloom",
-                alternativaB: "Hallownest",
-                alternativaC: "Dirtmouth",
-                alternativaD: "Ninho Profundo",
-                alternativaCorreta: "alternativaB",
-                dificuldade: "Fácil",
-                jogo: "Hollow Knight",
-                tema: "Lore"
-            },
-
-            {
-                pergunta: "Quem é a personagem controlada pelo jogador em Hollow Knight: Silksong?",
-                alternativaA: "Hornet",
-                alternativaB: "A Dama Branca",
-                alternativaC: "Iselda",
-                alternativaD: "Pérola",
-                alternativaCorreta: "alternativaA",
-                dificuldade: "Fácil",
-                jogo: "Silksong",
-                tema: "NPC"
-            },
-
-            {
-                pergunta: "Qual é a principal arma utilizada pelo Cavaleiro em Hollow Knight?",
-                alternativaA: "Lança",
-                alternativaB: "Arco",
-                alternativaC: "Prego",
-                alternativaD: "Foice",
-                alternativaCorreta: "alternativaC",
-                dificuldade: "Fácil",
-                jogo: "Hollow Knight",
-                tema: "Item"
-            },
-
-            {
-                pergunta: "Em qual reino Hornet chega no início de Silksong?",
-                alternativaA: "Hallownest",
-                alternativaB: "Pharloom",
-                alternativaC: "Lágrimas",
-                alternativaD: "Ninho Profundo",
-                alternativaCorreta: "alternativaB",
-                dificuldade: "Fácil",
-                jogo: "Silksong",
-                tema: "Lore"
-            },
-
-            {
-                pergunta: "Qual personagem aparece tanto em Hollow Knight quanto em Silksong?",
-                alternativaA: "Quirrel",
-                alternativaB: "Zote",
-                alternativaC: "Hornet",
-                alternativaD: "Cornifer",
-                alternativaCorreta: "alternativaC",
-                dificuldade: "Fácil",
-                jogo: "Ambos",
-                tema: "NPC"
-            },
-
-            {
-                pergunta: "Qual item permite ao Cavaleiro interagir com os sonhos e acessar memórias em Hollow Knight?",
-                alternativaA: "Lanterna do Pesadelo",
-                alternativaB: "Ferrão dos Sonhos",
-                alternativaC: "Chave Simples",
-                alternativaD: "Amuleto do Rei",
-                alternativaCorreta: "alternativaB",
-                dificuldade: "Intermediário",
-                jogo: "Hollow Knight",
-                tema: "Item"
-            },
-
-            {
-                pergunta: "Qual recurso Hornet acumula e utiliza para executar habilidades em Silksong?",
-                alternativaA: "Geo",
-                alternativaB: "Alma",
-                alternativaC: "Seda",
-                alternativaD: "Essência",
-                alternativaCorreta: "alternativaC",
-                dificuldade: "Intermediário",
-                jogo: "Silksong",
-                tema: "Item"
-            },
-
-            {
-                pergunta: "Qual é a principal cidade de Hallownest, conhecida por sua chuva constante?",
-                alternativaA: "Dirtmouth",
-                alternativaB: "Cidade das Lágrimas",
-                alternativaC: "Jardins da Rainha",
-                alternativaD: "Bacia Antiga",
-                alternativaCorreta: "alternativaB",
-                dificuldade: "Intermediário",
-                jogo: "Hollow Knight",
-                tema: "Lore"
-            },
-
-            {
-                pergunta: "Quem é a personagem que vende mapas para Hornet em Pharloom?",
-                alternativaA: "Shakra",
-                alternativaB: "Lace",
-                alternativaC: "Trobbio",
-                alternativaD: "Moss Mother",
-                alternativaCorreta: "alternativaA",
-                dificuldade: "Intermediário",
-                jogo: "Silksong",
-                tema: "NPC"
-            },
-
-            {
-                pergunta: "Qual instrumento Hornet utiliza para tocar melodias e interagir com elementos do mundo em Silksong?",
-                alternativaA: "Flauta",
-                alternativaB: "Harpa",
-                alternativaC: "Needolin",
-                alternativaD: "Sino do Rei",
-                alternativaCorreta: "alternativaC",
-                dificuldade: "Intermediário",
-                jogo: "Silksong",
-                tema: "Item"
-            },
-
-            {
-                pergunta: "No sistema de vida de Hornet em Silksong, o que as máscaras representam?",
-                alternativaA: "A quantidade de Geo carregada",
-                alternativaB: "O número de ferramentas equipadas",
-                alternativaC: "A vida da personagem",
-                alternativaD: "A quantidade de seda disponível",
-                alternativaCorreta: "alternativaC",
-                dificuldade: "Difícil",
-                jogo: "Silksong",
-                tema: "Item"
-            },
-
-            {
-                pergunta: "O que caracteriza o brasão Wanderer em Silksong?",
-                alternativaA: "Um estilo de combate rápido e de curto alcance",
-                alternativaB: "A capacidade de voar",
-                alternativaC: "O uso exclusivo de magia",
-                alternativaD: "A habilidade de controlar inimigos",
-                alternativaCorreta: "alternativaA",
-                dificuldade: "Difícil",
-                jogo: "Silksong",
-                tema: "Item"
-            },
-
-            {
-                pergunta: "Qual conteúdo adicional de Hollow Knight introduz os desafios dos panteões?",
-                alternativaA: "The Grimm Troupe",
-                alternativaB: "Lifeblood",
-                alternativaC: "Godmaster",
-                alternativaD: "Hidden Dreams",
-                alternativaCorreta: "alternativaC",
-                dificuldade: "Difícil",
-                jogo: "Hollow Knight",
-                tema: "Lore"
-            },
-
-            {
-                pergunta: "Quem são os pais de Hornet?",
-                alternativaA: "Rei Pálido e Dama Branca",
-                alternativaB: "Rei Pálido e Herrah",
-                alternativaC: "O Cavaleiro e Herrah",
-                alternativaD: "Quirrel e Dama Branca",
-                alternativaCorreta: "alternativaB",
-                dificuldade: "Difícil",
-                jogo: "Hollow Knight",
-                tema: "Lore"
-            },
-
-            {
-                pergunta: "Qual amuleto representa a união do Cavaleiro com o Vazio e é necessário para acessar um dos finais?",
-                alternativaA: "Coração do Rei",
-                alternativaB: "Coração do Vazio",
-                alternativaC: "Marca do Orgulho",
-                alternativaD: "Alma do Rei",
-                alternativaCorreta: "alternativaB",
-                dificuldade: "Difícil",
-                jogo: "Hollow Knight",
-                tema: "Item"
-            }
-
-        ];
-
-        let numeroDaQuestaoAtual = 0;
-        let pontuacaoFinal = 0;
-        let tentativaIncorreta = 0;
-        let certas = 0;
-        let erradas = 0;
-        let quantidadeDeQuestoes = listaDeQuestoes.length;
-
-
-        function onloadEsconder() {
-
-            document.getElementById('pontuacao').style.display = "none";
-            document.getElementById('jogo').style.display = "none";
-
-        }
-
-
-        function iniciarQuiz() {
-
-            document.getElementById('telaInicial').style.display = "none";
-
-            document.getElementById('pontuacao').style.display = "flex";
-            document.getElementById('jogo').style.display = "flex";
-
-            document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes;
-
-            numeroDaQuestaoAtual = 0;
-            pontuacaoFinal = 0;
-            certas = 0;
-            erradas = 0;
-
-            document.getElementById("spanCertas").innerHTML = certas;
-            document.getElementById("spanErradas").innerHTML = erradas;
-
-            preencherHTMLcomQuestaoAtual(0);
-
-            btnSubmeter.disabled = false;
-            btnProx.disabled = true;
-            btnTentarNovamente.disabled = true;
-
-        }
-
-
-        function preencherHTMLcomQuestaoAtual(index) {
-
-            habilitarAlternativas(true);
-
-            const questaoAtual = listaDeQuestoes[index];
-
-            numeroDaQuestaoAtual = index;
-
-            document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1;
-
-            document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
-
-            const midiaQuestao = document.getElementById("midiaQuestao");
-            const imagemQuestao = document.getElementById("imagemQuestao");
-            const audioQuestao = document.getElementById("audioQuestao");
-
-            midiaQuestao.hidden = !questaoAtual.imagem && !questaoAtual.audio;
-            imagemQuestao.hidden = !questaoAtual.imagem;
-            imagemQuestao.alt = questaoAtual.imagemDescricao || "";
-            if (questaoAtual.imagem) {
-                imagemQuestao.src = questaoAtual.imagem;
-            } else {
-                imagemQuestao.removeAttribute("src");
-            }
-
-            audioQuestao.pause();
-            audioQuestao.hidden = !questaoAtual.audio;
-            if (questaoAtual.audio) {
-                audioQuestao.src = questaoAtual.audio;
-            } else {
-                audioQuestao.removeAttribute("src");
-            }
-            audioQuestao.load();
-
-            document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
-            document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-            document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-            document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
-
-        }
-
-
-        function submeter() {
-
-            const options = document.getElementsByName("option");
-
-            let hasChecked = false;
-
-            for (let i = 0; i < options.length; i++) {
-
-                if (options[i].checked) {
-
-                    hasChecked = true;
-                    break;
-
-                }
-
-            }
-
-            if (!hasChecked) {
-
-                alert("Não há alternativas escolhidas. Escolha uma opção.");
-
-            } else {
-
-                btnSubmeter.disabled = true;
-                btnProx.disabled = false;
-
-                habilitarAlternativas(false);
-
-                checarResposta();
-
-            }
-
-        }
-
-
-        function habilitarAlternativas(trueOrFalse) {
-
-            let opcaoEscolhida = trueOrFalse ? false : true;
-
-            primeiraOpcao.disabled = opcaoEscolhida;
-            segundaOpcao.disabled = opcaoEscolhida;
-            terceiraOpcao.disabled = opcaoEscolhida;
-            quartaOpcao.disabled = opcaoEscolhida;
-
-        }
-
-
-        function avancar() {
-
-            btnProx.disabled = true;
-            btnSubmeter.disabled = false;
-
-            desmarcarRadioButtons();
-            limparCoresBackgroundOpcoes();
-
-            if (numeroDaQuestaoAtual < quantidadeDeQuestoes) {
-
-                preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual);
-
-            } else {
-
-                finalizarJogo();
-
-            }
-
-        }
-
-
-        function tentarNovamente() {
-
-            window.location.reload();
-
-        }
-
-
-        function checarResposta() {
-
-            const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual];
-
-            const respostaQuestaoAtual = questaoAtual.alternativaCorreta;
-
-            const options = document.getElementsByName("option");
-
-            let alternativaCorreta = null;
-
-            options.forEach((option) => {
-
-                if (option.value === respostaQuestaoAtual) {
-
-                    alternativaCorreta = option.labels[0].id;
-
-                }
-
-            });
-
-
-            options.forEach((option) => {
-
-                if (option.checked === true && option.value === respostaQuestaoAtual) {
-
-                    document.getElementById(alternativaCorreta).classList.add("text-success-with-bg");
-
-                    pontuacaoFinal++;
-                    certas++;
-
-                    document.getElementById("spanCertas").innerHTML = certas;
-
-                } else if (option.checked && option.value !== respostaQuestaoAtual) {
-
-                    const wrongLabelId = option.labels[0].id;
-
-                    document.getElementById(wrongLabelId).classList.add("text-danger-with-bg");
-
-                    document.getElementById(alternativaCorreta).classList.add("text-success-with-bg");
-
-                    tentativaIncorreta++;
-                    erradas++;
-
-                    document.getElementById("spanErradas").innerHTML = erradas;
-
-                }
-
-            });
-
-            numeroDaQuestaoAtual++;
-
-        }
-
-
-        function limparCoresBackgroundOpcoes() {
-
-            const options = document.getElementsByName("option");
-
-            options.forEach((option) => {
-
-                document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg");
-
-                document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg");
-
-            });
-
-        }
-
-
-        function desmarcarRadioButtons() {
-
-            const options = document.getElementsByName("option");
-
-            for (let i = 0; i < options.length; i++) {
-
-                options[i].checked = false;
-
-            }
-
-        }
-
-
-        function finalizarJogo() {
-
-            let textoParaMensagemFinal = null;
-
-            let classComCoresParaMensagemFinal = null;
-
-            const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes;
-
-
-            if (porcentagemFinalDeAcertos <= 0.3) {
-
-                textoParaMensagemFinal = "Parece que você não estudou...";
-
-                classComCoresParaMensagemFinal = "text-danger-with-bg";
-
-            } else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-
-                textoParaMensagemFinal = "Pode melhorar na próxima, hein!";
-
-                classComCoresParaMensagemFinal = "text-warning-with-bg";
-
-            } else {
-
-                textoParaMensagemFinal = "Uau, parabéns!";
-
-                classComCoresParaMensagemFinal = "text-success-with-bg";
-
-            }
-
-
-            textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões.";
-
-
-            document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal;
-
-            document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal);
-
-            document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal;
-
-
-            document.getElementById('jogo').classList.add("text-new-gray");
-
-
-            btnProx.disabled = true;
-            btnSubmeter.disabled = true;
-            btnTentarNovamente.disabled = false;
-
-        }
-
-    </script>
-
+    </main>
+    <footer class="footer"><div class="container"><p>Um tributo ao universo de Hollow Knight.</p></div></footer>
 </body>
 </html>

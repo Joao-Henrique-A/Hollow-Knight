@@ -14,7 +14,8 @@ function validarSessao() {
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    fetch("/usuarios/sair", { method: "POST" })
+        .finally(function () { window.location = "../login.html"; });
 }
 
 // carregamento (loading)

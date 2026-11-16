@@ -27,7 +27,9 @@ CREATE TABLE perguntas (
     resposta_correta CHAR(1) NOT NULL,
     nivel VARCHAR(30) NOT NULL,
     assunto VARCHAR(50) NOT NULL,
-    jogo VARCHAR(30) NOT NULL
+    jogo VARCHAR(30) NOT NULL,
+	imagem VARCHAR(255) DEFAULT NULL,
+    audio VARCHAR(255) DEFAULT NULL
 );
 
 CREATE TABLE tentativas (
@@ -373,9 +375,5 @@ VALUES
     NULL,
     'assets/audio/lost-lace.mp3'
 );
-
-ALTER TABLE perguntas
-ADD COLUMN imagem VARCHAR(255),
-ADD COLUMN audio VARCHAR(255);
 
 SELECT * FROM usuario;

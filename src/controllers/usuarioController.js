@@ -12,7 +12,15 @@ function autenticar(req, res) {
         usuarioModel.autenticar(email, senha)
             .then(function (resultadoAutenticar) {
                 if (resultadoAutenticar.length == 1) {
-                    res.status(200).json(resultadoAutenticar[0]);
+                    var usuario = resultadoAutenticar[0];
+                    req.session.regenerate(function (erro) {
+                        if (erro) return res.status(500).send("Não foi possível iniciar a sessão.");
+                        req.session.usuario = { id: usuario.idUsuario, nome: usuario.nome, email: usuario.infoUsuario };
+                        req.session.save(function (erroSessao) {
+                            if (erroSessao) return res.status(500).send("Não foi possível iniciar a sessão.");
+                            res.status(200).json(usuario);
+                        });
+                    });
                 } else if (resultadoAutenticar.length == 0) {
                     res.status(403).send("Email e/ou senha inválido(s)");
                 } else {

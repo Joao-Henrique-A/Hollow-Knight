@@ -10,6 +10,8 @@ require("dotenv").config({ path: caminho_env });
 var express = require("express");
 var cors = require("cors");
 var path = require("path");
+var session = require("express-session");
+var crypto = require("crypto");
 var PORTA_APP = process.env.APP_PORT;
 var HOST_APP = process.env.APP_HOST;
 
@@ -18,10 +20,18 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 let quizRouter = require("./src/routes/quiz");
+let dashboardRouter = require("./src/routes/dashboard");
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(session({
+    secret: process.env.SESSION_SECRET || crypto.randomBytes(32).toString("hex"),
+    resave: false,
+    saveUninitialized: false,
+    cookie: { httpOnly: true, sameSite: "lax", maxAge: 8 * 60 * 60 * 1000 }
+}));
+app.use("/vendor/chart.js", express.static(path.join(__dirname, "node_modules/chart.js/dist")));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(cors());
@@ -29,6 +39,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/quiz", quizRouter);
+app.use("/dashboard-api", dashboardRouter);
 
 
 

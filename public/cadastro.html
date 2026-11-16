@@ -15,20 +15,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
  
-<body>
+<body class="pagina-cadastro">
   <header class="header">
     <div class="container">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <img src="./assets/imgs/HollowQuiz-logo.png" alt="Hollow Knight">
       </a>
  
       <nav>
         <ul class="navbar">
           <li><a href="index.html">Início</a></li>
-          <li><a href="index.html">História</a></li>
-          <li><a href="index.html">Universo</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="dashboard/dashboard.html">Dashboard</a></li>
           <li><a href="login.html">Login</a></li>
-          <li class="agora"><a href="cadastro.html">Cadastro</a></li>
+          <li class="agora"><a href="cadastro.html" aria-current="page">Cadastro</a></li>
         </ul>
       </nav>
     </div>
@@ -41,28 +41,36 @@
       </div>
     </div>
     <div class="container">
+      <div class="imagem-acesso">
+        <img src="./assets/imgs/hornet-cadastro.jpg" alt="Hornet com sua agulha em Hollow Knight: Silksong">
+        <h2>Comece sua jornada</h2>
+        <p>Crie sua conta e descubra os segredos de Hallownest.</p>
+      </div>
       <div class="card">
         <h2>Bem-vindo!</h2>
+        <img class="ornamento-acesso" src="./assets/ornamentos/dialogo-superior.png" alt="">
+        <p class="descricao-acesso">Preencha seus dados para criar uma conta.</p>
         <div class="formulario">
           <div class="campo">
-            <span>Nome:</span>
+            <label for="nome_input">Nome</label>
             <input id="nome_input" type="text" placeholder="Seu nome" />
           </div>
           <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+            <label for="email_input">E-mail</label>
+            <input id="email_input" type="email" placeholder="meuemail@provedor.com" />
           </div>
           <div class="campo">
-            <span>Senha:</span>
+            <label for="senha_input">Senha</label>
             <input id="senha_input" onkeyup="VerificarSenha()" type="password" placeholder="******" />
           </div>
           <span id="mensagem_senha"></span>
           <div class="campo">
-            <span>Confirmação da Senha:</span>
+            <label for="confirmacao_senha_input">Confirmação da senha</label>
             <input id="confirmacao_senha_input" type="password" placeholder="******" />
           </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+          <button class="botao-quiz" onclick="cadastrar()">Cadastrar</button>
         </div>
+        <p class="link-acesso">Já tem uma conta? <a href="login.html">Faça login</a></p>
         <div id="div_aguardar" class="loading-div">
           <img src="./assets/circle-loading.gif" id="loading-gif" />
         </div>
@@ -74,7 +82,7 @@
 
   <div class="footer">
     <div class="container">
-      <h4></h4>
+      <p>Um tributo ao universo de Hollow Knight.</p>
     </div>
   </div>
  

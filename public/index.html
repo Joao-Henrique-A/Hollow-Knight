@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -9,6 +8,7 @@
     <title>HollowQuiz | Os Segredos de Hallownest</title>
 
     <link rel="stylesheet" href="./styles/estilo.css">
+    <link rel="stylesheet" href="./styles/home.css">
     <link rel="icon" href="./assets/imgs/hollowmenu.png">
 </head>
 
@@ -22,10 +22,9 @@
 
             <nav>
                 <ul class="navbar">
-                    <li class="agora"><a href="#">Início</a></li>
-                    <li><a href="#historia">História</a></li>
-                    <li><a href="#personagens">Personagens</a></li>
+                    <li class="agora"><a href="#" aria-current="page">Início</a></li>
                     <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="dashboard/dashboard.html">Dashboard</a></li>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="cadastro.html">Cadastro</a></li>
                 </ul>
@@ -35,781 +34,393 @@
 
     <main>
 
-        <section class="banner">
+        <section class="hero">
+            <img class="hero-cavaleiro" src="./assets/imgs/Cavaleiro em Rochas Luminescentes.png" alt="O Cavaleiro sobre rochas luminescentes">
 
-            <div class="banner-conteudo">
+            <div class="container hero-conteudo">
+                <p class="subtitulo">UMA HISTÓRIA SOB A SUPERFÍCIE</p>
 
-                <p class="subtitulo">UM REINO ESQUECIDO</p>
+                <h1>O reino caiu.<br><span>Seus segredos permaneceram.</span></h1>
 
-                <h1>
-                    Sob as ruínas,<br>
-                    <span>algo ainda desperta.</span>
-                </h1>
-
-                <p class="descricao">
-                    Desça às profundezas de Hallownest e descubra
-                    os segredos de um reino consumido pelo silêncio,
-                    pela memória e pela Infecção.
+                <p class="hero-descricao">
+                    Conheça a ascensão de Hallownest, a origem da Infecção
+                    e os acontecimentos que levaram o Cavaleiro de volta
+                    às ruínas de um reino esquecido.
                 </p>
 
-                <a href="#historia" class="botao">
-                    Descobrir a história
-                </a>
+                <div class="hero-acoes">
+                    <a href="#historia" class="botao botao-principal">Conhecer a história</a>
+                    <a href="quiz.html" class="botao botao-secundario">Testar conhecimentos</a>
+                </div>
 
-                <a href="quiz.html" class="botao-quiz">
-                    Quiz
-                </a>
-
+                <div class="hero-indicador">
+                    <span></span>
+                    <p>HALLOWNEST • CRÔNICAS DE UM REINO PERDIDO</p>
+                </div>
             </div>
-
-            <img
-                src="./assets/imgs/Cavaleiro em Rochas Luminescentes.png"
-                class="knight"
-                alt="O Cavaleiro sobre rochas luminescentes">
-
         </section>
 
-        <section class="lore" id="historia">
-
-            <div class="container lore-container">
-
-                <p class="subtitulo">CRÔNICAS DE HALLOWNEST</p>
-
-                <h2>
-                    Um reino <span>esquecido pelo tempo</span>
-                </h2>
-
-                <p class="lore-introducao">
-                    Muito antes dos acontecimentos de Hollow Knight,
-                    existia um reino subterrâneo habitado por inúmeras
-                    espécies de insetos. Hallownest tornou-se uma grande
-                    civilização, com cidades, templos, estradas e uma
-                    sociedade organizada sob o governo de uma entidade
-                    conhecida como Rei Pálido.
-
-                    Entretanto, uma antiga força esquecida retornaria
-                    para transformar aquele reino em ruínas.
-                </p>
-
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/cidade-das-lagrimas.jpg"
-                            alt="Cidade das Lágrimas em Hallownest">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO I</p>
-
-                        <h3>O nascimento de Hallownest</h3>
-
-                        <p>
-                            Hallownest foi construído nas profundezas
-                            de um vasto mundo subterrâneo. Antes de sua
-                            formação, diferentes tribos e criaturas
-                            habitavam essas terras, cada uma com suas
-                            próprias tradições e crenças.
-                        </p>
-
-                        <p>
-                            A chegada do Rei Pálido transformou a região.
-                            Ele concedeu consciência e inteligência a
-                            diversas criaturas, reunindo diferentes povos
-                            sob seu domínio e estabelecendo um reino
-                            que prometia prosperidade e permanência.
-                        </p>
-
-                        <p>
-                            Com o passar do tempo, Hallownest cresceu.
-                            A Cidade das Lágrimas tornou-se seu centro,
-                            enquanto caminhos subterrâneos conectavam
-                            regiões distantes, como os Ermos Fúngicos,
-                            os Jardins da Rainha e a Bacia Antiga.
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/rei-palido.jpg"
-                            alt="O Rei Pálido">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO II</p>
-
-                        <h3>O Rei Pálido e a Dama Branca</h3>
-
-                        <p>
-                            O Rei Pálido não era um inseto comum.
-                            Antes de assumir sua forma conhecida,
-                            ele era um Wyrm, uma criatura de poder
-                            extraordinário que chegou às terras
-                            que se tornariam Hallownest.
-                        </p>
-
-                        <p>
-                            Após abandonar sua antiga forma,
-                            transformou-se em uma figura menor,
-                            capaz de governar os habitantes do reino.
-                            Sua presença expandiu a consciência de
-                            diferentes espécies e fez com que muitas
-                            delas passassem a venerá-lo.
-                        </p>
-
-                        <p>
-                            Ao lado da Dama Branca, o Rei Pálido
-                            estabeleceu sua linhagem e governou
-                            Hallownest durante seu período de
-                            prosperidade.
-                        </p>
-
-                        <p>
-                            Seu governo, entretanto, não estava
-                            livre de conflitos. A tentativa de
-                            preservar seu reino acabaria levando
-                            a decisões que marcariam seu destino.
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/radiancia.jpg"
-                            alt="A Radiância">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO III</p>
-
-                        <h3>A Radiância e a antiga fé</h3>
-
-                        <p>
-                            Antes do domínio do Rei Pálido,
-                            a Tribo das Mariposas venerava uma
-                            entidade superior conhecida como
-                            Radiância.
-                        </p>
-
-                        <p>
-                            Ela era uma poderosa criatura ligada
-                            à luz e aos sonhos. Sua influência
-                            estava profundamente conectada
-                            à existência daquela tribo.
-                        </p>
-
-                        <p>
-                            Com a ascensão do Rei Pálido,
-                            as mariposas abandonaram gradualmente
-                            sua antiga divindade e passaram a
-                            venerar o novo governante.
-                        </p>
-
-                        <p>
-                            A Radiância foi esquecida pela maior
-                            parte de Hallownest, mas sua memória
-                            não desapareceu completamente.
-                            Com o passar do tempo, ela começou
-                            a surgir novamente nos sonhos
-                            dos habitantes.
-                        </p>
-
-                        <p>
-                            Sua influência cresceu até se
-                            transformar em uma força destrutiva:
-                            a Infecção.
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/infeccao.jpg"
-                            alt="A Infecção de Hallownest">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO IV</p>
-
-                        <h3>A Infecção e a queda da civilização</h3>
-
-                        <p>
-                            A Infecção surgiu através da influência
-                            da Radiância sobre os sonhos dos habitantes.
-                            Inicialmente, sua presença parecia distante,
-                            mas rapidamente começou a dominar
-                            as mentes das criaturas.
-                        </p>
-
-                        <p>
-                            Os infectados passaram a perder sua
-                            consciência e seu controle, tornando-se
-                            agressivos e deformados. A doença se
-                            espalhou pelas diferentes regiões,
-                            destruindo famílias, comunidades
-                            e antigas estruturas do reino.
-                        </p>
-
-                        <p>
-                            O Rei Pálido tentou impedir a propagação
-                            da Infecção, mas os métodos tradicionais
-                            não foram suficientes para deter
-                            uma entidade que agia através dos sonhos.
-                        </p>
-
-                        <p>
-                            Diante da ameaça, ele elaborou um plano
-                            que envolveria o poder do Vazio e
-                            o sacrifício de seus próprios descendentes.
-                        </p>
-
-                    </div>
-
-                </article>
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/abismo.jpg"
-                            alt="O Abismo e o Vazio">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO V</p>
-
-                        <h3>O Vazio e os receptáculos</h3>
-
-                        <p>
-                            Nas profundezas de Hallownest existia
-                            o Abismo, um lugar associado ao Vazio,
-                            uma substância misteriosa e poderosa.
-                        </p>
-
-                        <p>
-                            O Rei Pálido e a Dama Branca tiveram
-                            inúmeros filhos que foram lançados
-                            ao Abismo. Essas criaturas, conhecidas
-                            como receptáculos, nasceram com o Vazio
-                            preenchendo seus corpos.
-                        </p>
-
-                        <p>
-                            O objetivo era encontrar um ser sem
-                            mente, vontade ou voz, incapaz de ser
-                            influenciado pela Radiância.
-                        </p>
-
-                        <p>
-                            Entre todos os receptáculos, um foi
-                            escolhido e recebeu a responsabilidade
-                            de conter a entidade dentro de si.
-                            Essa criatura ficou conhecida como
-                            Hollow Knight.
-                        </p>
-
-                        <p>
-                            Entretanto, a escolha não foi perfeita.
-                            O vínculo desenvolvido entre o Rei Pálido
-                            e o receptáculo escolhido teria
-                            comprometido sua suposta pureza.
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/sonhadores.jpg"
-                            alt="Os três Sonhadores">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO VI</p>
-
-                        <h3>Os três Sonhadores</h3>
-
-                        <p>
-                            Para manter a Radiância selada,
-                            o Rei Pálido contou com a ajuda
-                            de três figuras importantes.
-                            Elas aceitaram entrar em um sono
-                            eterno para proteger o Templo
-                            do Ovo Negro.
-                        </p>
-
-                        <p>
-                            Os três Sonhadores foram:
-                        </p>
-
-                        <ul>
-                            <li>
-                                <strong>Monomon, a Professora:</strong>
-                                uma estudiosa que vivia em seus
-                                arquivos na região do Cânion da Névoa.
-                            </li>
-
-                            <li>
-                                <strong>Lurien, o Observador:</strong>
-                                uma figura importante que
-                                observava o reino de sua torre
-                                na Cidade das Lágrimas.
-                            </li>
-
-                            <li>
-                                <strong>Herrah, a Besta:</strong>
-                                rainha de Ninho Profundo, que
-                                aceitou participar do plano
-                                em troca de ter uma filha
-                                com o Rei Pálido: Hornet.
-                            </li>
-                        </ul>
-
-                        <p>
-                            Os três foram colocados em sono
-                            profundo e seus poderes ajudaram
-                            a manter o selo do Ovo Negro.
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/ovo-negro.jpg"
-                            alt="Templo do Ovo Negro">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO VII</p>
-
-                        <h3>O sacrifício do Hollow Knight</h3>
-
-                        <p>
-                            Após ser escolhido, o Hollow Knight
-                            foi preparado para cumprir sua missão.
-                            A Radiância foi selada dentro de seu
-                            corpo, e o receptáculo foi aprisionado
-                            no Templo do Ovo Negro.
-                        </p>
-
-                        <p>
-                            Os três Sonhadores protegeram
-                            a entrada do templo, formando
-                            um selo que deveria impedir
-                            que a ameaça escapasse.
-                        </p>
-
-                        <p>
-                            Durante algum tempo, o plano
-                            pareceu funcionar. Entretanto,
-                            a influência da Radiância
-                            não havia sido completamente
-                            eliminada.
-                        </p>
-
-                        <p>
-                            O receptáculo não era tão vazio
-                            quanto o Rei Pálido acreditava.
-                            Com o enfraquecimento do selo,
-                            a Infecção voltou a se espalhar.
-                        </p>
-
-                        <p>
-                            Hallownest entrou em colapso.
-                            O Rei Pálido desapareceu junto
-                            com seu palácio, e grande parte
-                            da população foi consumida
-                            pela Infecção.
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="historia-bloco">
-
-                    <div class="historia-imagem">
-                        <img
-                            src="./assets/imgs/cavaleiro.jpg"
-                            alt="O Cavaleiro de Hollow Knight">
-                    </div>
-
-                    <div class="historia-texto">
-
-                        <p class="subtitulo">CAPÍTULO VIII</p>
-
-                        <h3>O retorno do Cavaleiro</h3>
-
-                        <p>
-                            Muito tempo depois da queda
-                            de Hallownest, uma pequena figura
-                            retorna ao reino.
-                        </p>
-
-                        <p>
-                            Conhecido simplesmente como
-                            o Cavaleiro, ele percorre
-                            as ruínas e enfrenta criaturas
-                            corrompidas pela Infecção.
-                        </p>
-
-                        <p>
-                            Durante sua jornada, encontra
-                            personagens que sobreviveram
-                            à queda, descobre os segredos
-                            do reino e reúne fragmentos
-                            de sua história.
-                        </p>
-
-                        <p>
-                            Sua jornada o conduz ao Ovo Negro,
-                            aos três Sonhadores e à verdade
-                            sobre o receptáculo que foi
-                            escolhido para conter
-                            a Radiância.
-                        </p>
-
-                        <p>
-                            O destino de Hallownest dependerá
-                            das escolhas e descobertas
-                            realizadas pelo Cavaleiro.
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <section class="social" id="personagens">
-
-            <div class="container social-container">
-
-                <div class="secao-titulo">
-
-                    <p class="subtitulo">ROSTOS DE UM REINO PERDIDO</p>
-
-                    <h2>Personagens de Hallownest</h2>
-
+        <section class="introducao-historia" id="historia">
+            <div class="container">
+                <div class="titulo-secao">
+                    <p class="subtitulo">ANTES DO SILÊNCIO</p>
+                    <h2>A queda de <span>Hallownest</span></h2>
+                    <img class="ornamento" src="./assets/ornamentos/hollow-knight.png" alt="">
                     <p>
-                        Ao longo de sua jornada, o Cavaleiro encontra
-                        criaturas que guardam histórias, segredos
-                        e diferentes perspectivas sobre a queda
-                        do reino.
+                        Para compreender a jornada do Cavaleiro, é preciso voltar
+                        ao início: à formação do reino, à antiga divindade esquecida
+                        e às decisões que tentaram impedir a destruição de tudo.
                     </p>
-
                 </div>
 
+                <div class="linha-do-tempo">
 
-                <div class="boxes">
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/hornet.jpg"
-                            alt="Hornet">
-
-                        <h3>Hornet</h3>
-
-                        <p>
-                            Filha de Herrah e do Rei Pálido,
-                            Hornet é uma guerreira habilidosa
-                            que protege lugares importantes
-                            de Hallownest e acompanha
-                            os passos do Cavaleiro.
-                        </p>
-
+                    <article class="evento">
+                        <div class="evento-marcador">
+                            <span>01</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">A ASCENSÃO DO REINO</p>
+                            <h3>O surgimento de Hallownest</h3>
+                            <p>
+                                Nas profundezas de um vasto mundo subterrâneo,
+                                diferentes tribos e criaturas viviam de acordo
+                                com suas próprias tradições. A chegada do Rei
+                                Pálido mudou o destino dessas terras. Sob seu
+                                governo, Hallownest se tornou uma civilização
+                                organizada, conectada por cidades, estradas,
+                                templos e antigas passagens.
+                            </p>
+                            <p>
+                                A Cidade das Lágrimas tornou-se o centro do reino.
+                                Outras regiões, como os Ermos Fúngicos, o Pico de
+                                Cristal e a Bacia Antiga, passaram a fazer parte
+                                de uma extensa rede subterrânea.
+                            </p>
+                        </div>
+                        <figure class="evento-imagem">
+                            <img src="./assets/imgs/cidade-das-lagrimas.jpg"
+                                alt="Arquitetura da Cidade das Lágrimas">
+                            <figcaption>A Cidade das Lágrimas, centro de Hallownest.</figcaption>
+                        </figure>
                     </article>
 
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/quirrel.jpg"
-                            alt="Quirrel">
-
-                        <h3>Quirrel</h3>
-
-                        <p>
-                            Um viajante que retorna a Hallownest
-                            com poucas lembranças de seu passado.
-                            Sua jornada está ligada a Monomon
-                            e aos mistérios do reino.
-                        </p>
-
+                    <article class="evento evento-sem-imagem">
+                        <div class="evento-marcador">
+                            <span>02</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">O PODER REAL</p>
+                            <h3>O Rei Pálido e a Dama Branca</h3>
+                            <p>
+                                O Rei Pálido era, originalmente, um Wyrm. Ao
+                                assumir uma nova forma, tornou-se o governante
+                                de Hallownest e ampliou sua influência sobre
+                                os habitantes do reino. Ao lado da Dama Branca,
+                                estabeleceu a linhagem real.
+                            </p>
+                            <p>
+                                A prosperidade de Hallownest dependia da autoridade
+                                do casal e da promessa de uma civilização duradoura.
+                                Mas nem todos os conflitos poderiam ser resolvidos
+                                pela força de um governante.
+                            </p>
+                        </div>
                     </article>
 
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/zote.jpg"
-                            alt="Zote">
-
-                        <h3>Zote</h3>
-
-                        <p>
-                            Um viajante convencido que acredita
-                            ser um grande guerreiro. Apesar
-                            de suas declarações, frequentemente
-                            se coloca em situações perigosas.
-                        </p>
-
+                    <article class="evento">
+                        <div class="evento-marcador">
+                            <span>03</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">A ANTIGA DIVINDADE</p>
+                            <h3>A Radiância é esquecida</h3>
+                            <p>
+                                Antes da ascensão do Rei Pálido, a Tribo das
+                                Mariposas venerava a Radiância, uma entidade
+                                ligada à luz e aos sonhos. Com a expansão de
+                                Hallownest, essa antiga fé perdeu espaço e a
+                                Radiância foi deixada de lado.
+                            </p>
+                            <p>
+                                Esquecida, mas não destruída, sua presença
+                                permaneceu nos sonhos. Aos poucos, sua influência
+                                retornou e começou a atingir a mente dos habitantes.
+                            </p>
+                        </div>
+                        <figure class="evento-imagem evento-imagem-vertical">
+                            <img src="./assets/imgs/radiancia.jpg" alt="A Radiância">
+                            <figcaption>A entidade ligada à luz e aos sonhos.</figcaption>
+                        </figure>
                     </article>
 
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/cornifer.jpg"
-                            alt="Cornifer">
-
-                        <h3>Cornifer</h3>
-
-                        <p>
-                            Um cartógrafo que explora as regiões
-                            subterrâneas de Hallownest e vende
-                            mapas para ajudar viajantes
-                            a encontrar seus caminhos.
-                        </p>
-
+                    <article class="evento evento-sem-imagem">
+                        <div class="evento-marcador">
+                            <span>04</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">O INÍCIO DO FIM</p>
+                            <h3>A Infecção se espalha</h3>
+                            <p>
+                                A influência da Radiância se manifestou como
+                                uma Infecção que consumia a consciência dos
+                                habitantes. Criaturas passaram a agir de forma
+                                agressiva, enquanto a corrupção se espalhava
+                                pelas diferentes regiões.
+                            </p>
+                            <p>
+                                O reino estava diante de uma ameaça que não
+                                poderia ser contida por seus meios comuns.
+                                O Rei Pálido precisava encontrar outra solução.
+                            </p>
+                        </div>
                     </article>
 
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/iseldA.jpg"
-                            alt="Iselda">
-
-                        <h3>Iselda</h3>
-
-                        <p>
-                            Esposa de Cornifer, responsável
-                            pela loja de mapas em Dirtmouth.
-                            Ela ajuda os exploradores
-                            a se prepararem para suas viagens.
-                        </p>
-
+                    <article class="evento">
+                        <div class="evento-marcador">
+                            <span>05</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">O PLANO DO REI PÁLIDO</p>
+                            <h3>O Abismo e os receptáculos</h3>
+                            <p>
+                                Nas profundezas do Abismo existia o Vazio.
+                                O Rei Pálido e a Dama Branca tiveram inúmeros
+                                filhos que foram lançados naquele lugar.
+                                Esses descendentes ficaram conhecidos como
+                                receptáculos.
+                            </p>
+                            <p>
+                                O plano era encontrar um receptáculo vazio
+                                o bastante para conter a Radiância sem ser
+                                influenciado por ela. Um deles foi escolhido
+                                e recebeu o nome de Hollow Knight.
+                            </p>
+                        </div>
+                        <figure class="evento-imagem evento-imagem-vertical">
+                            <img src="./assets/imgs/abismo.jpg" alt="O Abismo e o Vazio">
+                            <figcaption>O lugar associado à origem dos receptáculos.</figcaption>
+                        </figure>
                     </article>
 
+                    <article class="evento evento-sem-imagem">
+                        <div class="evento-marcador">
+                            <span>06</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">O SELO</p>
+                            <h3>Os três Sonhadores</h3>
+                            <p>
+                                Para manter a Radiância selada, três figuras
+                                aceitaram entrar em sono profundo e proteger
+                                o Templo do Ovo Negro:
+                            </p>
+                            <ul class="lista-sonhadores">
+                                <li><strong>Monomon, a Professora:</strong> uma estudiosa ligada aos arquivos do Cânion da Névoa.</li>
+                                <li><strong>Lurien, o Observador:</strong> aquele que vigiava Hallownest de sua torre na Cidade das Lágrimas.</li>
+                                <li><strong>Herrah, a Besta:</strong> rainha de Ninho Profundo e mãe de Hornet.</li>
+                            </ul>
+                            <p>
+                                O sacrifício dos três criou o selo que protegia
+                                o templo e mantinha o receptáculo aprisionado.
+                            </p>
+                        </div>
+                    </article>
 
-                    <article class="box">
+                    <article class="evento">
+                        <div class="evento-marcador">
+                            <span>07</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">O FRACASSO DO PLANO</p>
+                            <h3>O Hollow Knight é selado</h3>
+                            <p>
+                                A Radiância foi aprisionada dentro do Hollow Knight,
+                                que permaneceu no Templo do Ovo Negro. Por algum
+                                tempo, o plano pareceu funcionar. Porém, o
+                                receptáculo não era tão vazio quanto o Rei Pálido
+                                esperava, e a Infecção voltou a se espalhar.
+                            </p>
+                            <p>
+                                Hallownest entrou em colapso. O reino perdeu
+                                sua antiga organização, seus habitantes foram
+                                consumidos pela Infecção e o destino do Rei
+                                Pálido tornou-se um mistério.
+                            </p>
+                        </div>
+                        <figure class="evento-imagem">
+                            <img src="./assets/imgs/ovo-negro.jpg" alt="O Templo do Ovo Negro">
+                            <figcaption>O templo que mantém o selo dos Sonhadores.</figcaption>
+                        </figure>
+                    </article>
 
-                        <img
-                            src="./assets/imgs/quirrel-e-outros.jpg"
-                            alt="Habitantes de Hallownest">
-
-                        <h3>Os habitantes</h3>
-
-                        <p>
-                            Guerreiros, comerciantes, estudiosos
-                            e criaturas de diferentes tribos
-                            ajudam a revelar como era a vida
-                            antes da queda do reino.
-                        </p>
-
+                    <article class="evento evento-final">
+                        <div class="evento-marcador">
+                            <span>08</span>
+                        </div>
+                        <div class="evento-conteudo">
+                            <p class="evento-etapa">MUITO TEMPO DEPOIS</p>
+                            <h3>O retorno do Cavaleiro</h3>
+                            <p>
+                                Muito tempo após a queda do reino, uma pequena
+                                figura retorna a Hallownest. Conhecido apenas
+                                como o Cavaleiro, ele atravessa regiões esquecidas,
+                                enfrenta criaturas corrompidas e encontra
+                                sobreviventes que guardam fragmentos do passado.
+                            </p>
+                            <p>
+                                Sua jornada o leva aos três Sonhadores, ao
+                                Templo do Ovo Negro e à verdade sobre o
+                                receptáculo escolhido. O destino de Hallownest
+                                passa a depender do caminho que ele seguirá.
+                            </p>
+                        </div>
                     </article>
 
                 </div>
-
             </div>
-
         </section>
 
-        <section class="lore" id="regioes">
-
-            <div class="container lore-container">
-
-                <p class="subtitulo">UM MUNDO SUBTERRÂNEO</p>
-
-                <h2>As regiões de <span>Hallownest</span></h2>
-
-                <p class="lore-introducao">
-                    O reino é formado por diferentes regiões,
-                    cada uma com seus próprios habitantes,
-                    perigos e histórias.
-                </p>
-
-                <div class="boxes">
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/dirtmouth.jpg"
-                            alt="Dirtmouth">
-
-                        <h3>Dirtmouth</h3>
-
-                        <p>
-                            Uma pequena vila localizada
-                            na superfície, próxima à entrada
-                            das ruínas de Hallownest.
-                        </p>
-
-                    </article>
-
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/cidade-das-lagrimas.jpg"
-                            alt="Cidade das Lágrimas">
-
-                        <h3>Cidade das Lágrimas</h3>
-
-                        <p>
-                            A antiga capital do reino,
-                            marcada por sua arquitetura
-                            grandiosa e pela chuva constante.
-                        </p>
-
-                    </article>
-
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/ninho-profundo.jpg"
-                            alt="Ninho Profundo">
-
-                        <h3>Ninho Profundo</h3>
-
-                        <p>
-                            Uma região escura e perigosa,
-                            lar de criaturas semelhantes
-                            a aranhas e da antiga rainha Herrah.
-                        </p>
-
-                    </article>
-
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/pico-de-cristal.jpg"
-                            alt="Pico de Cristal">
-
-                        <h3>Pico de Cristal</h3>
-
-                        <p>
-                            Uma região de mineração,
-                            repleta de cristais luminosos
-                            e perigos escondidos.
-                        </p>
-
-                    </article>
-
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/jardins-rainha.jpg"
-                            alt="Jardins da Rainha">
-
-                        <h3>Jardins da Rainha</h3>
-
-                        <p>
-                            Uma área coberta por vegetação,
-                            associada à Dama Branca
-                            e aos antigos jardins reais.
-                        </p>
-
-                    </article>
-
-
-                    <article class="box">
-
-                        <img
-                            src="./assets/imgs/abismo.jpg"
-                            alt="Abismo">
-
-                        <h3>Abismo</h3>
-
-                        <p>
-                            Uma região profunda e sombria,
-                            ligada à origem dos receptáculos
-                            e ao poder do Vazio.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="social">
-
-            <div class="container social-container">
-
-                <div class="secao-titulo">
-
-                    <p class="subtitulo">O QUE RESTOU DE UM REINO</p>
-
-                    <h2>Agora é sua vez de descobrir</h2>
-
+        <section class="secao-chefes" id="chefes">
+            <div class="container">
+                <div class="titulo-secao">
+                    <p class="subtitulo">GUARDIÕES E AMEAÇAS</p>
+                    <h2>Chefes de <span>Hallownest</span></h2>
+                    <img class="ornamento" src="./assets/ornamentos/hollow-knight.png" alt="">
                     <p>
-                        Conhecer a história de Hallownest é apenas
-                        o começo. Teste seus conhecimentos,
-                        relembre os personagens e descubra
-                        quantos segredos você realmente conhece.
+                        Ao explorar o reino, o Cavaleiro encontra guerreiros,
+                        criaturas infectadas e seres antigos que colocam sua
+                        jornada à prova. Estes são alguns dos confrontos marcantes.
                     </p>
-
-                    <a href="quiz.html" class="botao-quiz">
-                        Explorar o quiz
-                    </a>
-
                 </div>
 
-            </div>
+                <div class="grade-chefes">
+                    <article class="chefe-card">
+                        <img src="./assets/imgs/hornet.jpg" alt="Hornet">
+                        <div class="chefe-info">
+                            <span>PROTETORA</span>
+                            <h3>Hornet</h3>
+                            <p>Uma guerreira veloz que testa as habilidades do Cavaleiro e protege os segredos do reino.</p>
+                        </div>
+                    </article>
 
+                    <article class="chefe-card">
+                        <img src="./assets/imgs/nosk.jpg" alt="Nosk">
+                        <div class="chefe-info">
+                            <span>PREDADOR</span>
+                            <h3>Nosk</h3>
+                            <p>Uma criatura que assume formas familiares para atrair viajantes até seu covil.</p>
+                        </div>
+                    </article>
+
+                    <article class="chefe-card">
+                        <img src="./assets/imgs/lords-louva-deus.jpg" alt="Senhores Louva-a-Deus">
+                        <div class="chefe-info">
+                            <span>TRIBO GUERREIRA</span>
+                            <h3>Senhores Louva-a-Deus</h3>
+                            <p>Três combatentes que defendem sua tribo e exigem precisão durante a batalha.</p>
+                        </div>
+                    </article>
+
+                    <article class="chefe-card">
+                        <img src="./assets/imgs/grimm.jpg" alt="Grimm">
+                        <div class="chefe-info">
+                            <span>TRUPE DO PESADELO</span>
+                            <h3>Grimm</h3>
+                            <p>O mestre da Trupe do Pesadelo conduz um combate marcado por ritmo e movimentos precisos.</p>
+                        </div>
+                    </article>
+
+                    <article class="chefe-card">
+                        <img src="./assets/imgs/cavaleiro-vazio.jpg" alt="Hollow Knight">
+                        <div class="chefe-info">
+                            <span>O RECEPTÁCULO</span>
+                            <h3>Hollow Knight</h3>
+                            <p>O receptáculo escolhido pelo Rei Pálido para conter a Radiância dentro do Ovo Negro.</p>
+                        </div>
+                    </article>
+
+                    <article class="chefe-card">
+                        <img src="./assets/imgs/radiancia.jpg" alt="Radiância">
+                        <div class="chefe-info">
+                            <span>ANTIGA DIVINDADE</span>
+                            <h3>Radiância</h3>
+                            <p>A entidade ligada à luz e aos sonhos, cuja influência está por trás da Infecção.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-personagens" id="personagens">
+            <div class="container">
+                <div class="titulo-secao">
+                    <p class="subtitulo">AQUELES QUE RESTARAM</p>
+                    <h2>Personagens do reino</h2>
+                    <img class="ornamento" src="./assets/ornamentos/hollow-knight.png" alt="">
+                    <p>
+                        Nem todos os habitantes de Hallownest foram esquecidos.
+                        Alguns continuam suas jornadas, enquanto outros guardam
+                        lembranças de um passado que poucos compreendem.
+                    </p>
+                </div>
+
+                <div class="grade-personagens">
+                    <article class="personagem-card">
+                        <img src="./assets/imgs/quirrel.jpg" alt="Quirrel">
+                        <div>
+                            <h3>Quirrel</h3>
+                            <p>Um viajante que retorna a Hallownest e busca compreender os mistérios ligados a Monomon.</p>
+                        </div>
+                    </article>
+
+                    <article class="personagem-card">
+                        <img src="./assets/imgs/cornifer.jpg" alt="Cornifer">
+                        <div>
+                            <h3>Cornifer</h3>
+                            <p>O cartógrafo que percorre as regiões subterrâneas para desenhar e vender mapas.</p>
+                        </div>
+                    </article>
+
+                    <article class="personagem-card">
+                        <img src="./assets/imgs/zote.jpg" alt="Zote">
+                        <div>
+                            <h3>Zote</h3>
+                            <p>Um viajante convencido que se considera um grande guerreiro, apesar de suas frequentes dificuldades.</p>
+                        </div>
+                    </article>
+
+                    <article class="personagem-card">
+                        <img src="./assets/imgs/iseldA.jpg" alt="Iselda">
+                        <div>
+                            <h3>Iselda</h3>
+                            <p>Responsável pela loja de mapas em Dirtmouth e companheira de Cornifer.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="chamada-quiz">
+            <div class="container chamada-conteudo">
+                <p class="subtitulo">VOCÊ CONHECE HALLOWNEST?</p>
+                <h2>A história é apenas o começo.</h2>
+                <img class="ornamento" src="./assets/ornamentos/dialogo-inferior.png" alt="">
+                <p>
+                    Teste sua memória sobre personagens, regiões, chefes,
+                    trilha sonora e segredos dos jogos.
+                </p>
+                <a href="quiz.html" class="botao botao-principal">Entrar no quiz</a>
+            </div>
         </section>
 
     </main>
 
-
     <footer class="footer">
-
         <div class="container">
-
-            <p>
-                Um tributo ao universo de Hollow Knight.
-            </p>
-
+            <p>Um tributo ao universo de Hollow Knight.</p>
         </div>
-
     </footer>
 
 </body>
-
 </html>

@@ -37,6 +37,7 @@ O projeto será organizado de forma que cada responsabilidade fique separada.
 - **assets/:** pasta destinada às imagens, ícones e outros recursos visuais.
 
 As páginas deverão manter uma identidade visual consistente, utilizando a mesma Navbar e seguindo os padrões de organização do projeto.
+sem responsividade
 
 ## Sistema de Quiz
 

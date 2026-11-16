@@ -7,12 +7,17 @@ function listar() {
             alternativa_c AS alternativaC, alternativa_d AS alternativaD,
             nivel AS dificuldade, jogo, assunto AS tema, imagem, audio
         FROM perguntas
-        ORDER BY id;
+        ORDER BY FIELD(nivel, 'Fácil', 'Médio', 'Difícil', 'Especialista'), id;
     `;
 
     return database.executar(instrucaoSql);
 }
 
+function verificar(id, resposta) {
+    return database.executar("SELECT resposta_correta = ? AS acertou FROM perguntas WHERE id = ?", [resposta, id]);
+}
+
 module.exports = {
-    listar
+    listar,
+    verificar
 };

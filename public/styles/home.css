@@ -1,0 +1,443 @@
+
+
+/* Página inicial de HollowQuiz. Os estilos compartilhados ficam em estilo.css. */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(5, 9, 17, 0.97) 0%, rgba(5, 9, 17, 0.82) 52%, rgba(5, 9, 17, 0.35) 100%),
+        url('../assets/imgs/Ruínas Góticas na Névoa Azul.png') center 45% / cover no-repeat;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 130px;
+    background: linear-gradient(transparent, var(--cor-fundo));
+}
+
+.hero-cavaleiro {
+    position: absolute;
+    z-index: 1;
+    right: 5%;
+    bottom: 0;
+    width: 490px;
+    height: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.45));
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+    padding-bottom: 90px;
+}
+
+.hero h1 {
+    max-width: 660px;
+    margin: 0;
+    font-size: 76px;
+    line-height: 1.08;
+    letter-spacing: -1px;
+}
+
+.hero h1 span {
+    color: var(--cor-destaque);
+}
+
+.hero-descricao {
+    max-width: 590px;
+    margin: 28px 0 32px;
+    color: #c1ccda;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.hero-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 23px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+}
+
+.botao-principal {
+    background: #b8d4ef;
+    color: #0b1421;
+    border-color: #b8d4ef;
+}
+
+.botao-principal:hover {
+    background: #d4e6f7;
+    border-color: #d4e6f7;
+}
+
+.botao-secundario {
+    color: #e8f1fb;
+    border-color: rgba(184, 212, 239, 0.5);
+    background: rgba(13, 24, 39, 0.7);
+}
+
+.botao-secundario:hover {
+    background: rgba(48, 70, 97, 0.8);
+    border-color: #b8d4ef;
+}
+
+.hero-indicador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 75px;
+}
+
+.hero-indicador span {
+    display: block;
+    width: 34px;
+    height: 1px;
+    background: var(--cor-destaque);
+}
+
+.hero-indicador p {
+    margin: 0;
+    color: #91a4bb;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    color: var(--cor-destaque);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.6;
+}
+
+.introducao-historia,
+.secao-personagens {
+    padding: 105px 0;
+    background: radial-gradient(ellipse at top, #17283c, var(--cor-fundo) 60%);
+}
+
+.secao-personagens {
+    background: radial-gradient(ellipse at top, #25233a, var(--cor-fundo) 60%);
+}
+
+.titulo-secao {
+    max-width: 760px;
+    margin: 0 auto 75px;
+    text-align: center;
+}
+
+.titulo-secao h2 {
+    margin: 10px 0 18px;
+    color: #f1f5fa;
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.titulo-secao h2 span {
+    color: var(--cor-destaque);
+}
+
+.titulo-secao > p:last-child {
+    margin: 0 auto;
+    color: var(--cor-texto-secundario);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.linha-do-tempo {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.linha-do-tempo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 25px;
+    width: 1px;
+    background: linear-gradient(var(--cor-destaque), rgba(169, 201, 232, 0.08));
+}
+
+.evento {
+    position: relative;
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr) minmax(220px, 0.72fr);
+    align-items: start;
+    gap: 30px;
+    margin-bottom: 64px;
+}
+
+.evento-sem-imagem {
+    grid-template-columns: 52px minmax(0, 1fr);
+}
+
+.evento-marcador {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.evento-marcador span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border: 1px solid #7897b8;
+    border-radius: 50%;
+    background: #101b2b;
+    color: #d7e8f8;
+    font-family: 'Trajan', Georgia, serif;
+    font-size: 13px;
+}
+
+.evento-conteudo {
+    padding: 4px 0 0;
+}
+
+.evento-etapa {
+    margin: 0 0 10px;
+    color: #d5b578;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.evento-conteudo h3 {
+    margin: 0 0 18px;
+    color: #f1f5fa;
+    font-size: 30px;
+    line-height: 1.2;
+}
+
+.evento-conteudo p:not(.evento-etapa) {
+    margin: 0 0 14px;
+    color: #afbdce;
+    font-size: 13px;
+    line-height: 1.95;
+}
+
+.lista-sonhadores {
+    margin: 18px 0;
+    padding-left: 20px;
+    color: #afbdce;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.lista-sonhadores li {
+    margin-bottom: 9px;
+}
+
+.lista-sonhadores strong {
+    color: #e0eaf5;
+}
+
+.evento-imagem {
+    margin: 4px 0 0;
+    padding: 9px;
+    background: #101a29;
+    border: 1px solid rgba(139, 169, 201, 0.22);
+    border-radius: 5px;
+}
+
+.evento-imagem img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 3px;
+    filter: saturate(0.78);
+}
+
+.evento-imagem-vertical img {
+    object-fit: contain;
+    background: #080d17;
+}
+
+.evento-imagem figcaption {
+    padding: 10px 4px 3px;
+    color: #8498af;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.evento-final {
+    margin-bottom: 0;
+}
+
+.secao-chefes {
+    padding: 105px 0;
+    background:
+        linear-gradient(rgba(12, 20, 32, 0.94), rgba(12, 20, 32, 0.97)),
+        url('../assets/imgs/abismo.jpg') center / cover fixed;
+    border-top: 1px solid rgba(169, 201, 232, 0.12);
+    border-bottom: 1px solid rgba(169, 201, 232, 0.12);
+}
+
+.grade-chefes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.chefe-card {
+    position: relative;
+    min-height: 350px;
+    overflow: hidden;
+    background: #0b1421;
+    border: 1px solid #30445d;
+    border-radius: 5px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.chefe-card:hover {
+    transform: translateY(-5px);
+    border-color: #9bbddd;
+}
+
+.chefe-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center top;
+    background: #0a111d;
+    filter: saturate(0.9);
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.chefe-card:hover img {
+    transform: scale(1.035);
+    filter: saturate(1);
+}
+
+.chefe-info {
+    position: relative;
+    padding: 20px;
+    background: linear-gradient(180deg, #111c2c, #0c1523);
+}
+
+.chefe-info span {
+    color: #dbb882;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.chefe-info h3 {
+    margin: 8px 0 9px;
+    color: #f1f5fa;
+    font-size: 25px;
+}
+
+.chefe-info p {
+    margin: 0;
+    color: #aab9cc;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.grade-personagens {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.personagem-card {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-height: 160px;
+    padding: 18px;
+    background: #191e32;
+    border: 1px solid #2d4058;
+    border-radius: 5px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.personagem-card:hover {
+    border-color: #7897b8;
+    transform: translateY(-3px);
+}
+
+.personagem-card img {
+    flex-shrink: 0;
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+    background: #0a111d;
+    border-radius: 4px;
+}
+
+.personagem-card h3 {
+    margin: 0 0 8px;
+    color: #edf2f8;
+    font-size: 23px;
+}
+
+.personagem-card p {
+    margin: 0;
+    color: #aab9cc;
+    font-size: 12px;
+    line-height: 1.75;
+}
+
+.chamada-quiz {
+    padding: 100px 0;
+    text-align: center;
+    background:
+        linear-gradient(rgba(6, 12, 21, 0.88), rgba(6, 12, 21, 0.94)),
+        url('../assets/imgs/ovo-negro.jpg') center 45% / cover no-repeat;
+    border-top: 1px solid rgba(169, 201, 232, 0.16);
+}
+
+.chamada-conteudo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chamada-conteudo h2 {
+    margin: 8px 0 15px;
+    color: #f1f5fa;
+    font-size: 46px;
+    font-weight: 500;
+}
+
+.chamada-conteudo > p:not(.subtitulo) {
+    max-width: 590px;
+    margin: 0 0 28px;
+    color: #b1bfd0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
